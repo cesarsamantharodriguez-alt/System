@@ -40,7 +40,7 @@ async function seed() {
   const usersWithPasswords = await Promise.all(
     users.map(async (u) => ({
       ...u,
-      password: await bcrypt.hash(u.role === "Admin" ? "admin123" : "user123", 10)
+      password: await bcrynpt.hash(u.role === "Admin" ? "admin123" : "user123", 10)
     }))
   );
 
