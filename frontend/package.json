@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "dev:start": "npm run dev && npm run dev --prefix backend",
     "start": "next start",
     "lint": "eslint"
   },
