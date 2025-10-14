@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Housing Dashboard",
+  title: "Dash",
   description: "Simple Next.js + Tailwind dashboard",
 };
 
