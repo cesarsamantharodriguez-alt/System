@@ -41,7 +41,7 @@ ChartJS.register(
   Filler
 );
 
-/* ========== DATASETS ========== */
+
 const datasets = {
   daily: {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
@@ -102,9 +102,9 @@ const verticalBandPlugin = {
     const x = active.element.x;
     const top = chart.chartArea.top;
     const bottom = chart.chartArea.bottom;
-    const bandWidth = 28; // width of green vertical band
+    const bandWidth = 28; 
     ctx.save();
-    ctx.fillStyle = "rgba(220, 252, 231, 0.6)"; // light green translucent
+    ctx.fillStyle = "rgba(220, 252, 231, 0.6)"; 
     ctx.fillRect(x - bandWidth / 2, top, bandWidth, bottom - top);
     ctx.restore();
   },
@@ -112,9 +112,9 @@ const verticalBandPlugin = {
 
 ChartJS.register(verticalBandPlugin);
 
-/* ========== React Component ========== */
+
 export default function DashboardPage() {
-  const [selectedView, setSelectedView] = useState("monthly"); // default monthly for reference image
+  const [selectedView, setSelectedView] = useState("monthly"); 
   const [showDetail, setShowDetail] = useState(null);
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState([
@@ -146,14 +146,14 @@ export default function DashboardPage() {
 const chartRef = useRef();
   const ds = datasets[selectedView];
 
-  /* Chart.js data/options */
+
   const chartData = {
     labels: ds.labels,
     datasets: [
       {
         label: "Reach",
         data: ds.reach,
-        borderColor: "#2563eb", // blue
+        borderColor: "#2563eb",
         backgroundColor: "rgba(37,99,235,0.06)",
         pointBackgroundColor: "#ffffff",
         pointBorderColor: "#2563eb",
@@ -166,7 +166,7 @@ const chartRef = useRef();
       {
         label: "Paid Reach",
         data: ds.paid,
-        borderColor: "#a3e635", // lime
+        borderColor: "#a3e635", 
         backgroundColor: "rgba(163,230,53,0.06)",
         pointBackgroundColor: "#ffffff",
         pointBorderColor: "#a3e635",
@@ -179,7 +179,7 @@ const chartRef = useRef();
       {
         label: "Organic Reach",
         data: ds.organic,
-        borderColor: "#ec4899", // pink
+        borderColor: "#ec4899",
         backgroundColor: "rgba(236,72,153,0.06)",
         pointBackgroundColor: "#ffffff",
         pointBorderColor: "#ec4899",
@@ -209,7 +209,7 @@ const chartRef = useRef();
         displayColors: true,
         callbacks: {
           title: (t) => {
-            // title is label (month)
+          
             return t[0]?.label ?? "";
           },
           label: (context) => {
@@ -235,17 +235,17 @@ const chartRef = useRef();
     elements: {
       point: { hoverRadius: 7 },
     },
-    // register plugin above draws the vertical band automatically when tooltip active
+   
   };
 
   return (
     <main className="flex-1 bg-[#F7FBE9] min-h-screen p-6 text-gray-800 overflow-y-auto">
-      {/* Header */}
+    
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-extrabold text-gray-800">Dashboard</h1>
         <div className="flex items-center gap-4">
 
-{/* Search */}
+
           <div className="relative">
             <Search className="absolute left-3 top-2.5 text-gray-500" size={18} />
             <input
@@ -255,7 +255,7 @@ const chartRef = useRef();
             />
           </div>
 
-          {/* Notifications */}
+
           <div className="relative">
             <button
               onClick={() => setShowNotifications(!showNotifications)}
@@ -357,7 +357,7 @@ const chartRef = useRef();
         </div>
       </div>
 
-      {/* Summary Cards */}
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {[{ title: "Total Reach", value: "150K" }, { title: "Total Paid Reach", value: "115K" }, { title: "Total Organic Reach", value: "35K" }].map((card, idx) => (
           <div key={idx} className="p-6 rounded-xl shadow-md bg-white border border-gray-200 hover:shadow-lg transition">
@@ -367,7 +367,7 @@ const chartRef = useRef();
         ))}
       </div>
 
-      {/* View buttons */}
+
       <div className="flex justify-end mb-4 space-x-2">
         {["daily", "weekly", "monthly"].map((view) => (
           <button
@@ -380,7 +380,7 @@ const chartRef = useRef();
         ))}
       </div>
 
-      {/* Reach Overview (Chart.js) */}
+
       <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200 mb-8">
         <div className="flex items-start justify-between mb-4">
           <h2 className="text-xl font-semibold">Reach Overview</h2>
@@ -391,9 +391,9 @@ const chartRef = useRef();
         </div>
       </div>
 
-      {/* Other Charts (Recharts) */}
+
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
-                {/* Demographic */}
+
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
           <div className="flex justify-between items-center mb-4">
             <h2 className="font-semibold text-gray-800">🧭 Demographic</h2>
@@ -410,7 +410,7 @@ const chartRef = useRef();
           </PieChart>
         </div>
 
-        {/* Top Channels */}
+
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
           <div className="flex justify-between items-center mb-4">
             <h2 className="font-semibold text-gray-800">⭐ Top Channels</h2>
@@ -429,7 +429,7 @@ const chartRef = useRef();
           </ul>
         </div>
 
-        {/* Conversion */}
+
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 text-center">
           <h2 className="font-semibold text-gray-800 mb-4">🎯 Conversion Rate</h2>
           <ResponsiveContainer width="100%" height={200}>
@@ -441,9 +441,9 @@ const chartRef = useRef();
         </div>
       </div>
 
-      {/* Engagement & Activity */}
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Post Engagement */}
+
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
           <h2 className="font-semibold mb-4">📊 Post Engagement</h2>
           <ResponsiveContainer width="100%" height={300}>
@@ -459,7 +459,7 @@ const chartRef = useRef();
           </ResponsiveContainer>
         </div>
 
-        {/* Recent Activity */}
+
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
           <h2 className="font-semibold mb-4">🕒 Recent Activity</h2>
           <ul className="space-y-3">
@@ -473,7 +473,7 @@ const chartRef = useRef();
         </div>
       </div>
 
-            {/* Modal */}
+
 <AnimatePresence>
   {showDetail && (
     <motion.div
@@ -488,7 +488,7 @@ const chartRef = useRef();
         animate={{ scale: 1 }}
         exit={{ scale: 0.9 }}
       >
-        {/* Close Button */}
+
         <button
           onClick={() => setShowDetail(null)}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition"
@@ -496,12 +496,12 @@ const chartRef = useRef();
           <X size={20} />
         </button>
 
-        {/* Title */}
+
         <h2 className="text-2xl font-extrabold mb-4 capitalize text-gray-800">
           {showDetail} Details
         </h2>
 
-        {/* Conditional Rendering per Detail Type */}
+
         {showDetail === "demographic" && (
           <div>
             <p className="text-gray-600 mb-4">

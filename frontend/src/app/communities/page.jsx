@@ -47,7 +47,7 @@ export default function CommunitiesPage() {
     image: "",
   });
 
-  // Handle join/leave
+
   const toggleJoin = (id) => {
     setCommunities(
       communities.map((c) =>
@@ -62,21 +62,21 @@ export default function CommunitiesPage() {
     );
   };
 
-  // Handle sorting
+
   const sortedCommunities = [...communities].sort((a, b) => {
     if (sortBy === "members") return b.members - a.members;
     if (sortBy === "oldest") return a.id - b.id;
-    return b.id - a.id; // newest default
+    return b.id - a.id; 
   });
 
-  // Handle search
+
   const filteredCommunities = sortedCommunities.filter(
     (c) =>
       c.name.toLowerCase().includes(search.toLowerCase()) ||
       c.description.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Handle new community creation
+
   const addCommunity = (e) => {
     e.preventDefault();
     if (!newCommunity.name || !newCommunity.description) {
@@ -103,7 +103,7 @@ export default function CommunitiesPage() {
       <div className="flex flex-col flex-1 p-6 overflow-auto">
         <h1 className="text-2xl font-bold mb-4 text-gray-800">🌐 Communities</h1>
 
-        {/* Controls */}
+
         <div className="flex flex-wrap items-center justify-between mb-5 gap-3">
           <input
             type="text"
@@ -123,7 +123,7 @@ export default function CommunitiesPage() {
           </select>
         </div>
 
-        {/* Community Cards */}
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredCommunities.map((community) => (
             <div
@@ -168,7 +168,7 @@ export default function CommunitiesPage() {
           ))}
         </div>
 
-        {/* Create New Community Form */}
+
         <div className="mt-8 bg-white p-5 rounded-lg shadow border border-gray-200">
           <h2 className="text-lg font-semibold mb-3 text-gray-800">
             ➕ Create New Community
@@ -214,7 +214,7 @@ export default function CommunitiesPage() {
           </form>
         </div>
 
-        {/* Community Details Modal */}
+
         {selectedCommunity && (
           <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
             <div className="bg-white rounded-xl shadow-lg w-[90%] md:w-[600px] p-5 relative">
@@ -240,7 +240,7 @@ export default function CommunitiesPage() {
                 </p>
               </div>
 
-              {/* Posts */}
+
               <div className="mt-4">
                 <h3 className="text-lg font-semibold mb-2 text-gray-700">
                   Recent Posts

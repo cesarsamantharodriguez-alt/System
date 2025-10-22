@@ -100,7 +100,7 @@ export default function UserPage() {
       <Sidebar />
       <div className="flex flex-col flex-1">
         <div className="p-8 flex-1 overflow-auto text-gray-800">
-          {/* Add User Section */}
+
           <div className="mb-8 bg-white shadow-lg p-6 rounded-xl border border-gray-200">
             <h2 className="text-2xl font-semibold mb-4 text-gray-900">Add New User</h2>
             <div className="flex flex-wrap gap-4">
@@ -150,7 +150,6 @@ export default function UserPage() {
             </div>
           </div>
 
-          {/* Search Bar */}
           <div className="mb-4 flex items-center justify-between">
             <input
               type="text"
@@ -161,7 +160,7 @@ export default function UserPage() {
             />
           </div>
 
-          {/* User Table */}
+
           <div className="overflow-x-auto bg-white shadow-lg rounded-xl border border-green-200">
             <table className="w-full text-sm text-left border-collapse">
               <thead className="bg-[#D8F3A2] text-gray-800 uppercase tracking-wider">
@@ -220,7 +219,7 @@ export default function UserPage() {
             </table>
           </div>
 
-          {/* Delete Confirmation Modal */}
+
           {showDeleteModal && (
             <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
               <div className="bg-white p-6 rounded-lg shadow-lg w-80 border-t-4 border-red-500">

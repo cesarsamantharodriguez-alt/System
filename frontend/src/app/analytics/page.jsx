@@ -24,15 +24,15 @@ export default function AnalyticsPage() {
   const [filter, setFilter] = useState("7days");
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("overview");
-  const [isClient, setIsClient] = useState(false); // 👈 important
+  const [isClient, setIsClient] = useState(false); 
   const [growthRate, setGrowthRate] = useState(0);
 
-  // Only generate data on the client to avoid SSR mismatch
+
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // Generate random data dynamically
+
   const generateData = (days) => {
     return Array.from({ length: days }, (_, i) => ({
       day: `Day ${i + 1}`,
@@ -48,13 +48,13 @@ export default function AnalyticsPage() {
       else if (filter === "30days") setData(generateData(30));
       else setData(generateData(90));
 
-      // random growth value
+
       setGrowthRate(Math.floor(Math.random() * 40 - 10));
     }
   }, [filter, isClient]);
 
   if (!isClient) {
-    // 👇 render loading skeleton or empty div during SSR
+
     return (
       <main className="flex w-full h-screen bg-white text-gray-900">
         <Sidebar />
@@ -65,7 +65,7 @@ export default function AnalyticsPage() {
     );
   }
 
-  // Derived analytics
+
   const totalUsers = data.reduce((acc, d) => acc + d.users, 0);
   const totalPosts = data.reduce((acc, d) => acc + d.posts, 0);
   const avgEngagement = (
@@ -74,12 +74,12 @@ export default function AnalyticsPage() {
 
   const COLORS = ["#D8F3A2", "#4FD1C5", "#63B3ED", "#F6AD55"];
 
-  // Filter + Search functionality
+
   const filteredData = data.filter((item) =>
     item.day.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Export as CSV
+
   const exportCSV = () => {
     const csvContent = [
       ["Day", "Users", "Posts", "Engagement (%)"],
@@ -105,7 +105,7 @@ export default function AnalyticsPage() {
           📊 Analytics
         </h1>
 
-        {/* Control Panel */}
+
         <div className="flex flex-wrap gap-3 mb-6 items-center">
           <input
             type="text"
@@ -141,7 +141,7 @@ export default function AnalyticsPage() {
           </button>
         </div>
 
-        {/* Summary Cards */}
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
           <div className="bg-[#D8F3A2] rounded-xl p-4 shadow-md">
             <h2 className="text-sm text-gray-700">Total Users</h2>
@@ -167,9 +167,9 @@ export default function AnalyticsPage() {
           </div>
         </div>
 
-        {/* Charts Section */}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Line Chart */}
+
           <div className="bg-white rounded-xl border p-4 shadow">
             <h3 className="font-semibold mb-2">📈 User Growth Trend</h3>
             <ResponsiveContainer width="100%" height={250}>
@@ -189,7 +189,7 @@ export default function AnalyticsPage() {
             </ResponsiveContainer>
           </div>
 
-          {/* Bar Chart */}
+
           <div className="bg-white rounded-xl border p-4 shadow">
             <h3 className="font-semibold mb-2">📊 Post Engagement</h3>
             <ResponsiveContainer width="100%" height={250}>
@@ -203,7 +203,7 @@ export default function AnalyticsPage() {
             </ResponsiveContainer>
           </div>
 
-          {/* Pie Chart */}
+
           <div className="bg-white rounded-xl border p-6 shadow lg:col-span-2">
             <h3 className="font-semibold mb-4 text-gray-800">
                Engagement Breakdown
@@ -268,7 +268,7 @@ export default function AnalyticsPage() {
           </div>
         </div>
 
-        {/* Data Table */}
+
         <div className="mt-6 bg-white border rounded-xl p-4 shadow">
           <h3 className="font-semibold mb-3">📋 Analytics Data Table</h3>
           <table className="w-full text-left border-collapse">

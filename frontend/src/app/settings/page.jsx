@@ -20,7 +20,7 @@ export default function SettingsPage() {
     document.documentElement.classList.toggle("dark", savedTheme === "dark");
   }, []);
 
-  // 🌗 Toggle Theme
+
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -28,14 +28,14 @@ export default function SettingsPage() {
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
-  // 🔐 Password Strength Indicator
+
   const checkStrength = (value) => {
     if (value.length < 6) setStrength("Weak");
     else if (/[A-Z]/.test(value) && /\d/.test(value)) setStrength("Strong");
     else setStrength("Moderate");
   };
 
-  // ✅ Toast Notification
+
   const showToast = (message) => {
     setToast(message);
     setTimeout(() => setToast(""), 3000);
@@ -69,7 +69,7 @@ export default function SettingsPage() {
         >
           <h1 className="text-3xl font-extrabold mb-8">Settings</h1>
 
-          {/* Toast Notification */}
+
           {toast && (
             <div className="fixed top-5 right-5 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-fade-in">
               {toast}
@@ -77,13 +77,13 @@ export default function SettingsPage() {
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* 👤 Profile Settings */}
+
             <div className="rounded-2xl bg-white shadow-lg p-6 border border-gray-200 text-gray-800 hover:shadow-2xl transition duration-300">
               <h2 className="text-xl font-semibold mb-6 text-gray-900 flex items-center gap-2">
                 <User className="w-5 h-5 text-blue-600" /> Profile Settings
               </h2>
               <form className="space-y-4" onSubmit={handleProfileSave}>
-                {/* Avatar Placeholder */}
+
                 <div className="flex flex-col items-center mb-4">
                   <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center shadow-inner">
                     <User className="w-12 h-12 text-gray-500" />
@@ -121,7 +121,7 @@ export default function SettingsPage() {
               </form>
             </div>
 
-            {/* 🔒 Account Security */}
+
             <div className="rounded-2xl bg-white shadow-lg p-6 border border-gray-200 text-gray-800 hover:shadow-2xl transition duration-300">
               <h2 className="text-xl font-semibold mb-6 text-gray-900">Account Security</h2>
               <form className="space-y-4" onSubmit={handlePasswordUpdate}>
@@ -184,7 +184,7 @@ export default function SettingsPage() {
               </form>
             </div>
 
-            {/* 🎨 Theme Toggle */}
+
             <div className="rounded-2xl bg-white shadow-lg p-6 border border-gray-200 text-gray-800 hover:shadow-2xl transition duration-300 col-span-2">
               <h2 className="text-xl font-semibold mb-6 text-gray-900">Theme Preferences</h2>
               <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border">
@@ -212,7 +212,7 @@ export default function SettingsPage() {
             </div>
           </div>
 
-          {/* Save All */}
+
           <div className="mt-10 flex justify-center">
             <button
               className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-lg hover:bg-blue-700 transition transform hover:scale-105"

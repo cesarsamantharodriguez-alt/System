@@ -36,7 +36,7 @@ export default function SchedulePostPage() {
   const [filter, setFilter] = useState("all");
   const [sortOrder, setSortOrder] = useState("asc");
 
-  // Automatically publish scheduled posts
+
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
@@ -138,7 +138,7 @@ export default function SchedulePostPage() {
         <Header />
         <h1 className="text-2xl font-bold mb-4 text-gray-800">📅 Schedule Post</h1>
 
-        {/* Create Post Form */}
+
         <form
           onSubmit={handleSubmit}
           className="bg-white p-5 rounded-lg shadow-md border border-gray-200 mb-6"
@@ -197,7 +197,7 @@ export default function SchedulePostPage() {
           </div>
         </form>
 
-        {/* Filter, Search, and Sort */}
+
         <div className="flex flex-wrap justify-between items-center mb-4 gap-2">
           <input
             type="text"
@@ -227,7 +227,7 @@ export default function SchedulePostPage() {
           </div>
         </div>
 
-        {/* 📌 Recent Scheduled/Published Posts Display */}
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {filteredPosts.map((p) => (
             <div
@@ -252,7 +252,7 @@ export default function SchedulePostPage() {
           ))}
         </div>
 
-        {/* Scheduled Posts Table */}
+
         <div className="overflow-x-auto bg-white shadow rounded-lg border border-gray-200">
           <table className="w-full text-sm text-left">
             <thead className="bg-gray-100 text-gray-800 font-semibold">

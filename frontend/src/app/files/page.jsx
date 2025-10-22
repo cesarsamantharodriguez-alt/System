@@ -5,7 +5,7 @@ import Sidebar from "../components/sidebar";
 import Header from "../components/header";
 
 export default function Page() {
-  // ===================== FILES & FOLDERS =====================
+
   const [folders, setFolders] = useState([
     { name: "Reports", files: ["report1.csv", "summary.pdf"] },
     { name: "Images", files: ["chart.png", "growth.png"] },
@@ -70,7 +70,7 @@ export default function Page() {
     empPage * empRows
   );
 
-  // 📤 CSV Export
+
   const handleExport = () => {
     const csv = [
       [
@@ -110,7 +110,7 @@ export default function Page() {
       <div className="flex flex-col flex-1">
         <Header title="Files & Employees" />
         <div className="flex-1 p-6 overflow-y-auto space-y-10">
-          {/* ===================== FILE MANAGER ===================== */}
+
           <section className="bg-white border rounded-xl p-6 shadow">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">
               📂 File & Folder Manager
@@ -152,7 +152,7 @@ export default function Page() {
               </button>
             </div>
 
-            {/* Folders */}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
               {folders
                 .filter((f) =>
@@ -191,7 +191,7 @@ export default function Page() {
             </div>
           </section>
 
-          {/* ===================== EMPLOYEE DIRECTORY ===================== */}
+
           <section className="bg-white border rounded-xl p-6 shadow">
             <h2 className="text-2xl font-semibold mb-4 text-gray-900">
               👩‍💼 Employee Directory

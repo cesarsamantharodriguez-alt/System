@@ -70,31 +70,31 @@ export default function InboxPage() {
     },
   ]);
 
-  // UI state
+
   const [selectedMessage, setSelectedMessage] = useState(null);
-  const [tab, setTab] = useState("Primary"); // Primary | Starred | Sent | Trash
+  const [tab, setTab] = useState("Primary"); 
   const [query, setQuery] = useState("");
-  const [sort, setSort] = useState("newest"); // newest | oldest | unread-first
+  const [sort, setSort] = useState("newest");
   const [replyText, setReplyText] = useState("");
 
-  // Helper: update message by id and keep selectedMessage in sync
+ 
   const updateMessage = (id, patch) => {
     setMessages((prev) => {
       const next = prev.map((m) => (m.id === id ? { ...m, ...patch } : m));
       return next;
     });
-    // if the currently selected message is updated, refresh it from state after applying patch
+
     if (selectedMessage && selectedMessage.id === id) {
       setSelectedMessage((prev) => (prev ? { ...prev, ...patch } : prev));
     }
   };
 
-  // Toggle star
+ 
   const toggleStar = (id) => {
     updateMessage(id, (old) => {
-      // but updateMessage expects patch object; so do direct set:
+     
     });
-    // simpler: do full set to avoid complexity
+
     setMessages((prev) =>
       prev.map((m) => (m.id === id ? { ...m, starred: !m.starred } : m))
     );
@@ -103,13 +103,13 @@ export default function InboxPage() {
     }
   };
 
-  // Delete: move to Trash
+
   const moveToTrash = (id) => {
     setMessages((prev) => prev.map((m) => (m.id === id ? { ...m, category: "Trash" } : m)));
     if (selectedMessage && selectedMessage.id === id) setSelectedMessage(null);
   };
 
-  // Mark read/unread — ensure both messages array and open message update
+  
   const toggleRead = (id) => {
     setMessages((prev) =>
       prev.map((m) => (m.id === id ? { ...m, read: !m.read } : m))
@@ -119,7 +119,7 @@ export default function InboxPage() {
     }
   };
 
-  // Reply (creates a sent message for demo)
+
   const sendReply = () => {
     if (!replyText.trim() || !selectedMessage) return;
     const newMsg = {
@@ -139,7 +139,7 @@ export default function InboxPage() {
     alert("Reply sent (demo). Message added to Sent.");
   };
 
-  // Forward (demo)
+
   const forwardMessage = (msg) => {
     if (!msg) return;
     const newMsg = {
@@ -158,7 +158,7 @@ export default function InboxPage() {
     alert("Message forwarded (demo) — added to Sent.");
   };
 
-  // Live search + tab filtering
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
 
@@ -181,7 +181,7 @@ export default function InboxPage() {
       });
     }
 
-    // Sorting
+
     if (sort === "newest") {
       list.sort((a, b) => new Date(b.time) - new Date(a.time));
     } else if (sort === "oldest") {
@@ -189,14 +189,14 @@ export default function InboxPage() {
     } else if (sort === "unread-first") {
       list.sort((a, b) => {
         if (a.read === b.read) return new Date(b.time) - new Date(a.time);
-        return a.read ? 1 : -1; // unread (read=false) first
+        return a.read ? 1 : -1; 
       });
     }
 
     return list;
   }, [messages, tab, query, sort]);
 
-  // function to open message (auto-mark read)
+
   const openMessage = (m) => {
     setSelectedMessage(m);
     if (!m.read) {
@@ -212,7 +212,7 @@ export default function InboxPage() {
       <div className="flex-1 flex flex-col">
         <Header title="Inbox" />
 
-        {/* toolbar */}
+
         <div className="flex items-center justify-between px-6 py-3 bg-white border-b">
           <div className="flex items-center gap-4">
             {["Primary", "Starred", "Sent", "Trash"].map((t) => (
@@ -257,9 +257,9 @@ export default function InboxPage() {
           </div>
         </div>
 
-        {/* main area */}
+
         <div className="flex flex-1 p-6 gap-4 overflow-hidden">
-          {/* message list */}
+
           <div className="w-1/3 bg-white rounded-xl shadow border border-gray-200 overflow-y-auto">
             {filtered.length ? (
               filtered.map((m) => (
@@ -334,7 +334,7 @@ export default function InboxPage() {
             )}
           </div>
 
-          {/* message view */}
+
           <div className="flex-1 bg-white rounded-xl shadow border border-gray-200 p-6 overflow-y-auto">
             {selectedMessage ? (
               <>
@@ -379,7 +379,7 @@ export default function InboxPage() {
                   </div>
                 )}
 
-                {/* Reply box */}
+
                 <div className="border-t pt-3 space-y-3">
                   <textarea
                     rows={3}
