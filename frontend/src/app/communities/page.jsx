@@ -98,7 +98,7 @@ export default function CommunitiesPage() {
   };
 
   return (
-    <main className="flex w-full h-screen bg-white text-gray-900">
+    <main className="flex w-full min-h-screen bg-white text-gray-900">
       <Sidebar />
       <div className="flex flex-col flex-1 p-6 overflow-auto">
         <h1 className="text-2xl font-bold mb-4 text-gray-800">🌐 Communities</h1>

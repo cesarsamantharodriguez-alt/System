@@ -105,7 +105,7 @@ export default function Page() {
   };
 
   return (
-    <main className="flex w-full h-screen bg-[#F6FCE6] text-gray-900">
+    <main className="flex w-full min-h-screen bg-[#F6FCE6] text-gray-900">
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Header title="Files & Employees" />

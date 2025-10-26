@@ -24,10 +24,12 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) return res.status(400).json({ error: "Email & password required" });
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email })
+
     if (!user) return res.status(400).json({ error: "Invalid credentials" });
 
     const match = await bcrypt.compare(password, user.password);
+
     if (!match) return res.status(400).json({ error: "Invalid credentials" });
 
     const token = jwt.sign(
@@ -41,6 +43,7 @@ export const login = async (req, res) => {
       role: user.role,
       user: { id: user._id, email: user.email, firstName: user.firstName }
     });
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

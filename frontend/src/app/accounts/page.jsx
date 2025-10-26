@@ -96,7 +96,7 @@ export default function UserPage() {
   };
 
   return (
-    <main className="flex w-full h-screen bg-gray-50">
+    <main className="flex w-full min-h-screen bg-gray-50">
       <Sidebar />
       <div className="flex flex-col flex-1">
         <div className="p-8 flex-1 overflow-auto text-gray-800">

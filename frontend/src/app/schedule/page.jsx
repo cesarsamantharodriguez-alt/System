@@ -132,7 +132,7 @@ export default function SchedulePostPage() {
   };
 
   return (
-    <main className="flex w-full h-screen bg-white text-gray-900">
+    <main className="flex w-full min-h-screen bg-white text-gray-900">
       <Sidebar />
       <div className="flex flex-col flex-1 p-6 overflow-auto">
         <Header />

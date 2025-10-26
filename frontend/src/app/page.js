@@ -14,6 +14,11 @@ export default function Home() {
 
     const data = await authenticateUser(email, password)
 
+    if (!data) {
+      alert("Invalid credentials!")
+      return
+    }
+
     localStorage.setItem("token", data.token);
     localStorage.setItem("role", data.role);
 

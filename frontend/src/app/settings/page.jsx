@@ -56,7 +56,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <main className="flex w-full h-screen">
+    <main className="flex w-full min-h-screen">
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Header />
@@ -216,7 +216,7 @@ export default function SettingsPage() {
           <div className="mt-10 flex justify-center">
             <button
               className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-lg hover:bg-blue-700 transition transform hover:scale-105"
-              onClick={() => showToast("✅ All Settings Saved!")}
+              onClick={() => showToast(" All Settings Saved!")}
             >
               Save All Changes
             </button>

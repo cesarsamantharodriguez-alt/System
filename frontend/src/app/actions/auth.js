@@ -12,7 +12,11 @@ export const authenticateUser = async (email, password) => {
 
         const data = await res.json();
 
-        if (!res.ok) throw new Error(data.error || "Login failed");
+        if (!res.ok) {
+            return {
+                error: "Invalid credentials"
+            }
+        };
 
         return data
     } catch (err) {

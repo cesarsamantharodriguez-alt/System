@@ -5,7 +5,7 @@ import Content from "./content";
 
 export default function Dashboard() {
   return (
-    <main className="flex w-full h-screen">
+    <main className="flex w-full min-h-screen">
       <Sidebar />
 
       <div className="flex flex-col flex-1">

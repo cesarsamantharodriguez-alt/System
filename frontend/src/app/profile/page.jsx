@@ -79,7 +79,7 @@ export default function Profile() {
   }
 
   return (
-    <main className="flex w-full h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <main className="flex w-full min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Header />

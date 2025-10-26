@@ -14,7 +14,7 @@ export default function Sidebar() {
     }`;
 
   return (
-    <aside className="w-64 bg-[#D8F3A2] text-green-900 h-screen p-6 flex flex-col justify-between">
+    <aside className="w-64 bg-[#D8F3A2] text-green-900 min-h-screen p-6 flex flex-col justify-between">
       <div>
         <h2 className="text-2xl font-extrabold mb-8">Dash</h2>
 
