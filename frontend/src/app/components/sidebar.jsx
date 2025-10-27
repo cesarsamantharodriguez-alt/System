@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Inbox, Users, BarChart3, Folder, Settings } from "lucide-react";
+import { Home, Inbox, Users, BarChart3, Folder, Settings, User } from "lucide-react"; // 👈 added User icon
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -30,7 +30,7 @@ export default function Sidebar() {
           <Link href="/inbox" className={linkClasses("/inbox")}>
             <Inbox size={18} /> Inbox
             <span className="ml-auto bg-green-700 text-white text-xs px-2 py-0.5 rounded-full">
-              7
+              3
             </span>
           </Link>
 
@@ -60,6 +60,11 @@ export default function Sidebar() {
 
           <Link href="/files" className={linkClasses("/files")}>
             <Folder size={18} /> Files & Users
+          </Link>
+
+          {/* 👇 New Profile link */}
+          <Link href="/profile" className={linkClasses("/profile")}>
+            <User size={18} /> Profile
           </Link>
 
           <Link href="/settings" className={linkClasses("/settings")}>

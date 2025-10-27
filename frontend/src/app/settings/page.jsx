@@ -60,11 +60,12 @@ export default function SettingsPage() {
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Header />
+        
         <div
           className={`p-6 flex-1 overflow-auto transition-colors duration-300 ${
-            theme === "dark"
-              ? "bg-gradient-to-br from-gray-900 to-gray-800 text-white"
-              : "bg-gradient-to-br from-green-50 to-green-100 text-green-900"
+    theme === "dark"
+      ? "bg-gray-900 text-white"
+      : "bg-white text-gray-900"
           }`}
         >
           <h1 className="text-3xl font-extrabold mb-8">Settings</h1>

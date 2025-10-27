@@ -165,7 +165,7 @@ export default function Page() {
                   >
                     <div className="flex justify-between items-center mb-2">
                       <span className="font-semibold text-gray-800">
-                        📁 {folder.name}
+                         {folder.name}
                       </span>
                       <button
                         onClick={() =>
