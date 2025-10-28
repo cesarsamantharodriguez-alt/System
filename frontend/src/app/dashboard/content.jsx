@@ -396,7 +396,7 @@ const chartRef = useRef();
 
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="font-semibold text-gray-800">🧭 Demographic</h2>
+            <h2 className="font-semibold text-gray-800"> Demographic</h2>
             <button className="text-sm text-blue-600 hover:underline" onClick={() => setShowDetail("demographic")}>
               See Detail
             </button>
@@ -413,7 +413,7 @@ const chartRef = useRef();
 
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="font-semibold text-gray-800">⭐ Top Channels</h2>
+            <h2 className="font-semibold text-gray-800"> Top Channels</h2>
             <button className="text-sm text-blue-600 hover:underline" onClick={() => setShowDetail("channels")}>
               See Detail
             </button>
@@ -431,7 +431,7 @@ const chartRef = useRef();
 
 
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200 text-center">
-          <h2 className="font-semibold text-gray-800 mb-4">🎯 Conversion Rate</h2>
+          <h2 className="font-semibold text-gray-800 mb-4"> Conversion Rate</h2>
           <ResponsiveContainer width="100%" height={200}>
             <RadialBarChart cx="50%" cy="50%" innerRadius="70%" outerRadius="90%" barSize={18} data={conversionData} startAngle={90} endAngle={450}>
               <RadialBar dataKey="value" />
@@ -445,7 +445,7 @@ const chartRef = useRef();
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
-          <h2 className="font-semibold mb-4">📊 Post Engagement</h2>
+          <h2 className="font-semibold mb-4"> Post Engagement</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={barData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -461,7 +461,7 @@ const chartRef = useRef();
 
 
         <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-200">
-          <h2 className="font-semibold mb-4">🕒 Recent Activity</h2>
+          <h2 className="font-semibold mb-4"> Recent Activity</h2>
           <ul className="space-y-3">
             {recentActivity.map((item) => (
               <li key={item.id} className="flex justify-between">

@@ -171,7 +171,7 @@ export default function AnalyticsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           <div className="bg-white rounded-xl border p-4 shadow">
-            <h3 className="font-semibold mb-2">📈 User Growth Trend</h3>
+            <h3 className="font-semibold mb-2"> User Growth Trend</h3>
             <ResponsiveContainer width="100%" height={250}>
               <LineChart data={filteredData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -191,7 +191,7 @@ export default function AnalyticsPage() {
 
 
           <div className="bg-white rounded-xl border p-4 shadow">
-            <h3 className="font-semibold mb-2">📊 Post Engagement</h3>
+            <h3 className="font-semibold mb-2"> Post Engagement</h3>
             <ResponsiveContainer width="100%" height={250}>
               <BarChart data={filteredData}>
                 <CartesianGrid strokeDasharray="3 3" />

@@ -9,7 +9,7 @@ export default function SchedulePostPage() {
     {
       id: 1,
       title: "Morning Motivation",
-      content: "Start your day with positivity 🌞",
+      content: "Start your day with positivity ",
       date: "2025-10-22",
       time: "07:30",
       status: "Scheduled",
@@ -17,7 +17,7 @@ export default function SchedulePostPage() {
     {
       id: 2,
       title: "Product Launch!",
-      content: "Excited to announce our new product line 🚀",
+      content: "Excited to announce our new product line ",
       date: "2025-10-21",
       time: "12:00",
       status: "Published",
@@ -135,7 +135,7 @@ export default function SchedulePostPage() {
     <main className="flex w-full min-h-screen bg-white text-gray-900">
       <Sidebar />
       <div className="flex flex-col flex-1 p-6 overflow-auto">
-        <Header />
+        
         <h1 className="text-2xl font-bold mb-4 text-gray-800">📅 Schedule Post</h1>
 
 

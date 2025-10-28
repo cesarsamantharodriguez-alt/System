@@ -56,7 +56,7 @@ export default function Profile() {
 
   const [profile, setProfile] = useState({
     name: "Samantha Cesar",
-    tagline: "Aspiring Full-Stack Developer",
+    tagline: "Newbie",
     title: "4th Year IT Student",
     subtitle: "OJT",
     email: "samantha@test.com",
